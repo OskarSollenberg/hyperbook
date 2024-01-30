@@ -1,13 +1,10 @@
-import React from "react";
-import { useState } from "react";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { ContextProvider } from "../context/context";
 
 export default function SwipeCTA() {
-  const [image, setImage] = useState("https://source.unsplash.com/random");
   const [animateMatch, setAnimateMatch] = useState(false);
   const [animateMismatch, setanimateMismatch] = useState(false);
-  const { targetUser = {} } = useContext(ContextProvider);
+  const { targetUser, setTargetUser, allUsers } = useContext(ContextProvider);
 
   if (animateMatch || animateMismatch) {
     setTimeout(() => {
@@ -17,9 +14,11 @@ export default function SwipeCTA() {
   }
 
   function renderImage() {
-    fetch(`https://source.unsplash.com/random`).then((response) => {
-      setImage(response.url);
-    });
+    const randomUser = allUsers[Math.floor(Math.random() * allUsers.length)];
+    setTargetUser(randomUser);
+    // Remove image from carousel
+    // Create a new object called liked and add it to user
+    // Display a new image?? or just wait for pressing another image
   }
 
   return (

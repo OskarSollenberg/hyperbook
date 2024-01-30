@@ -1,32 +1,23 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
-export const ContextProvider = createContext({
-  userImage: null,
-  allUsers: null,
-  targetUser: null,
-  saveImage: () => {},
-  saveCurrentUser: () => {},
-  hanfleCarouselClick: () => {},
-});
+import useUsers from "../hooks/useUsers";
+import useUser from "../hooks/useUser";
+import useCamera from "../hooks/useCamera";
+
+export const ContextProvider = createContext(null);
 
 export const Context = ({ children }) => {
-  const [userImage, setUserImage] = useState(null);
-  const [allUsers, setAllUsers] = useState(null);
-  const [user, setUser] = useState(null);
-  const [targetUser, setTargetUser] = useState();
+  // Hooks
+  const { allUsers, getUsers, addUser } = useUsers();
+  const { user, setCurrentUser } = useUser(null);
+  const { userImage, saveImage } = useCamera();
 
-  const saveCurrentUser = (user) => {
-    setUser(user);
-  };
+  // State
+  const [targetUser, setTargetUser] = useState("");
 
-  useEffect(() => {
-    const users = JSON.parse(localStorage.getItem("users"));
-    setAllUsers(users);
-  }, [user]);
-
-  const saveImage = (img) => {
-    const imageSrc = img.current.getScreenshot();
-    setUserImage(imageSrc);
+  const setUser = (user) => {
+    addUser(user);
+    setCurrentUser(user);
   };
 
   const handleCarouselClick = (user) => {
@@ -34,13 +25,19 @@ export const Context = ({ children }) => {
   };
 
   const value = {
-    userImage,
+    // users
     allUsers,
+    getUsers,
+    addUser,
     user,
+    setCurrentUser,
+    setUser,
     targetUser,
+
+    // camera / images
     handleCarouselClick,
+    userImage,
     saveImage,
-    saveCurrentUser,
   };
 
   return (

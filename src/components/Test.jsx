@@ -1,4 +1,3 @@
-import React from "react";
 import { useContext } from "react";
 import { ContextProvider } from "../context/context";
 
@@ -9,14 +8,15 @@ function Test() {
   if (!allUsers) return null;
   return (
     <div className="flex gap-5">
-      {allUsers.map((user, index) => (
-        <img
-          onClick={() => handleCarouselClick(user)}
-          src={user.image}
-          key={index}
-        ></img>
-      ))}
-      ;
+      {allUsers
+        .filter((user) => !user.selected)
+        .map((user, index) => (
+          <img
+            onClick={() => handleCarouselClick(user)}
+            src={user.image}
+            key={index}
+          ></img>
+        ))}
     </div>
   );
 }

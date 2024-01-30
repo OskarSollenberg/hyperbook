@@ -1,8 +1,4 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { ContextProvider } from "../context/context";
-
 import { HiMiniHeart } from "react-icons/hi2";
 import { MdOutlineExitToApp } from "react-icons/md";
 
@@ -36,7 +32,7 @@ export default function Header() {
       </div>
 
       <Link
-        to="/MainPage"
+        to="/app"
         className="flex flex-row font-bold ml-32 hover:scale-105 transition ease-in-out duration-500"
       >
         <div className="text-2xl text-white py-0 px-1">Hi</div>
@@ -47,7 +43,7 @@ export default function Header() {
 
       <div className="self-end flex flex-row">
         <div className=" header-icon text-2xl flex justify-center items-end w-20 mr-2">
-          <Link to="/Matches">
+          <Link to="/matches">
             <HeaderIcon
               icon={
                 <HiMiniHeart
@@ -69,7 +65,7 @@ export default function Header() {
             {MATCHCOUNT}
           </div>
         </div>
-        <Link to="/LoginPage">
+        <Link to="/">
           <HeaderIcon
             icon={
               <MdOutlineExitToApp
