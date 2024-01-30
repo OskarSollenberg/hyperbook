@@ -4,7 +4,7 @@ export default function useUsers() {
   const [allUsers, setAllUsers] = useState(null);
 
   const getUsers = () => {
-    const users = JSON.parse(localStorage.getItem("users"));
+    const users = JSON.parse(localStorage.getItem("users")) || [];
     setAllUsers(users);
   };
 

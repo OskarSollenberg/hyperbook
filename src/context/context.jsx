@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 import useUsers from "../hooks/useUsers";
 import useUser from "../hooks/useUser";
@@ -7,19 +7,24 @@ import useCamera from "../hooks/useCamera";
 export const ContextProvider = createContext(null);
 
 export const Context = ({ children }) => {
-  // Hooks
-  const { allUsers, getUsers, addUser } = useUsers();
-  const { user, setCurrentUser } = useUser(null);
-  const { userImage, saveImage } = useCamera();
+  // HOOKS
+  //users
+  const { allUsers, getUsers, addUser } = useUsers([]);
+  //user
+  const { user, setCurrentUser } = useUser({});
+  //camera
+  const { userImage, saveImage } = useCamera("");
 
   // State
   const [targetUser, setTargetUser] = useState("");
 
-  // Functions
-  const setUser = (user) => {
+  // Adding a new user to LS/ users state / and user state
+  const setNewUser = (user) => {
     addUser(user);
     setCurrentUser(user);
   };
+
+  // Setting the target user to be displayed in the carousel
   const handleCarouselClick = (user) => {
     setTargetUser(user);
   };
@@ -30,8 +35,7 @@ export const Context = ({ children }) => {
     getUsers,
     addUser,
     user,
-    setCurrentUser,
-    setUser,
+    setNewUser,
     targetUser,
 
     // camera / images

@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 
 import { useRef, useContext } from "react";
-
 import { ContextProvider } from "../context/context";
 import useNavigateTo from "../hooks/useNavigateTo";
 
 export default function SignUpForm() {
   const { goTo } = useNavigateTo();
-  const { addUser, getUsers, setCurrentUser } = useContext(ContextProvider);
-  const { userImage } = useContext(ContextProvider);
+  const { getUsers, setNewUser, userImage } = useContext(ContextProvider);
+
   const name = useRef();
   const description = useRef();
   const password = useRef();
@@ -28,8 +27,7 @@ export default function SignUpForm() {
         selected: false,
       };
       getUsers();
-      addUser(user);
-      setCurrentUser(user);
+      setNewUser(user);
       goTo("/app");
     }
   };

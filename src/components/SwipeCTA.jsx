@@ -75,32 +75,3 @@ export default function SwipeCTA() {
     </div>
   );
 }
-
-//     useEffect(() => {
-//       async function fetchData() {
-//         const url =
-//           "https://famous-quotes4.p.rapidapi.com/random?category=all&count=2";
-//         const options = {
-//           method: "GET",
-//           headers: {
-//             "X-RapidAPI-Key":
-//               "2d640366b0msh8927fe9cb9f1ec6p158e2djsnda7256755aab",
-//             "X-RapidAPI-Host": "famous-quotes4.p.rapidapi.com",
-//           },
-//         };
-
-//         try {
-//           const response = await fetch(url, options);
-//           const result = await response.json();
-//           const newQuote = result[0].text;
-//           if (newQuote.length > 70) {
-//             fetchData();
-//           } else {
-//             setQuote(newQuote);
-//           }
-//         } catch (error) {
-//           console.error(error);
-//         }
-//       }
-//       fetchData();
-//     }, [image]);
