@@ -15,11 +15,11 @@ export const Context = ({ children }) => {
   // State
   const [targetUser, setTargetUser] = useState("");
 
+  // Functions
   const setUser = (user) => {
     addUser(user);
     setCurrentUser(user);
   };
-
   const handleCarouselClick = (user) => {
     setTargetUser(user);
   };
