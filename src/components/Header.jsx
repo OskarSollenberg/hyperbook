@@ -3,12 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthenticationContext";
 import { HiMiniHeart } from "react-icons/hi2";
 import { MdOutlineExitToApp } from "react-icons/md";
+import useGetPersonalLikes from "../hooks/useGetPersonalLikes.hook";
 
 export default function Header() {
-  const ICONSIZE = 35;
-  let MATCHCOUNT = 2;
-
   const { user, handleLogOut } = useAuth();
+  const ICONSIZE = 35;
+  let MATCHCOUNT = useGetPersonalLikes(user.username).length;
 
   return (
     <div

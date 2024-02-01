@@ -7,8 +7,8 @@ import { useAuth } from "../context/AuthenticationContext";
 
 export default function SignUpForm() {
   const navigate = useNavigate();
-  const { userImage, allUsers } = useContext(ContextProvider);
-  const { setUser } = useAuth();
+  const { userImage } = useContext(ContextProvider);
+  const { setUser, allUsers, setAllUsers } = useAuth();
   const name = useRef();
   const description = useRef();
   const password = useRef();
@@ -44,11 +44,13 @@ export default function SignUpForm() {
         password: password.current.value,
         description: description.current.value,
         image: userImage,
-        likes: [],
+        liked: [],
+        disliked: [],
       };
       setUser(user);
       users.push(user);
       localStorage.setItem("users", JSON.stringify(users));
+      setAllUsers(users);
       goToHomePage();
     }
   };

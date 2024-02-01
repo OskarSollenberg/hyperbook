@@ -14,7 +14,6 @@ export const ContextProvider = createContext({
   handleRemoveImage: () => {},
   carouselUsers: [],
   setCarouselUsers: () => {},
-  personalLikes: [],
 });
 
 export const Context = ({ children }) => {
@@ -22,8 +21,6 @@ export const Context = ({ children }) => {
   const { allUsers, user } = useAuth();
   const [selectedUser, setSelectedUser] = useState(null);
   const [carouselUsers, setCarouselUsers] = useState([]);
-
-  let [personalLikes, setPersonalLikes] = useState([]);
 
   const handleRemoveImage = (selectedUser) => {
     const newUsers = carouselUsers.filter(

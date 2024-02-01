@@ -25,40 +25,54 @@ export default function SignInForm() {
   function setupTestUsers() {
     const testUsers = [
       {
-        name: "ben",
-        username: "ben",
-        password: 1,
+        name: "Marcus",
+        username: "tacoo",
+        password: "1",
         description:
           "When I was a teen, there was a popular hit song by Johnny Lee called “Looking for Love in All the Wrong Places.” The song spoke to the hope and the challenge of finding love—a message that still rings true.",
         image: "https://source.unsplash.com/random",
-        likes: [],
+        liked: [],
+        disliked: [],
+      },
+      {
+        name: "ben",
+        username: "ben",
+        password: "1",
+        description:
+          "When I was a teen, there was a popular hit song by Johnny Lee called “Looking for Love in All the Wrong Places.” The song spoke to the hope and the challenge of finding love—a message that still rings true.",
+        image: "https://source.unsplash.com/random",
+        liked: ["tacoo"],
+        disliked: [],
       },
       {
         name: "moa",
         username: "moa",
-        password: 1,
+        password: "1",
         description:
           "When I was a teen, there was a popular hit song by Johnny Lee called “Looking for Love in All the Wrong Places.” The song spoke to the hope and the challenge of finding love—a message that still rings true.",
         image: "https://source.unsplash.com/random",
-        likes: [],
+        liked: [],
+        disliked: [],
       },
       {
         name: "peter",
         username: "peter",
-        password: 1,
+        password: "1",
         description:
           "When I was a teen, there was a popular hit song by Johnny Lee called “Looking for Love in All the Wrong Places.” The song spoke to the hope and the challenge of finding love—a message that still rings true.",
         image: "https://source.unsplash.com/random",
-        likes: [],
+        liked: ["tacoo"],
+        disliked: [],
       },
       {
         name: "sara",
         username: "sara",
-        password: 1,
+        password: "1",
         description:
           "When I was a teen, there was a popular hit song by Johnny Lee called “Looking for Love in All the Wrong Places.” The song spoke to the hope and the challenge of finding love—a message that still rings true.",
         image: "https://source.unsplash.com/random",
-        likes: [],
+        liked: ["tacoo"],
+        disliked: [],
       },
     ];
     setAllUsers(testUsers);

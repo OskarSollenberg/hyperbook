@@ -1,10 +1,15 @@
 import { useState, useContext } from "react";
 import { ContextProvider } from "../context/context";
+import useHandleLike from "../hooks/useHandleLike.hook";
+import useHandleDislike from "../hooks/useHandleDislike.hook";
+import { useAuth } from "../context/AuthenticationContext";
 
 export default function SwipeCTA() {
   const [animation, setAnimation] = useState("");
   const { selectedUser, handleRemoveImage, handleLike } =
     useContext(ContextProvider);
+
+  const { user, allUsers, setAllUsers } = useAuth();
 
   const handleAnimate = (state) => {
     setAnimation(state);
@@ -22,6 +27,7 @@ export default function SwipeCTA() {
           onClick={() => {
             handleAnimate("disliked");
             handleRemoveImage(selectedUser);
+            useHandleDislike(user.username, selectedUser.username, setAllUsers);
           }}
           className="text-red absolute bottom-10 hover:before:bg-redborder-red-500 h-16 w-16 rounded-full overflow-hidden border border-red-500 bg-white px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-red-500 before:transition-all before:duration-500 hover:text-white hover:shadow-red-500 hover:before:left-0 hover:before:w-full mr-[10rem]"
         >
@@ -32,7 +38,7 @@ export default function SwipeCTA() {
           onClick={() => {
             handleAnimate("liked");
             handleRemoveImage(selectedUser);
-            handleLike(selectedUser);
+            useHandleLike(user.username, selectedUser.username, setAllUsers);
           }}
           className="text-red absolute bottom-10 h-16 w-16 rounded-full overflow-hidden border border-green-500 bg-white px-3 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-green-500 before:transition-all before:duration-500 hover:text-white hover:shadow-green-500 hover:before:left-0 hover:before:w-full ml-[10rem]"
         >
