@@ -52,7 +52,6 @@ export const Context = ({ children }) => {
     carouselUsers,
     setCarouselUsers,
     user,
-    personalLikes,
   };
 
   return (
