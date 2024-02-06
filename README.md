@@ -1,6 +1,6 @@
 # Hinder
 
-We've developed a dating application that enables you to set up a profile, browse through other profiles by swiping, and form a match when both parties express mutual interest. 
+We have developed a dating application that enables you to set up a profile, browse through other profiles by swiping, and form a match when both parties express mutual interest. 
 This app features account creation, along with the flexibility to log out and log back in, utilizing local storage to mimic the functionality of a database.
 
 
