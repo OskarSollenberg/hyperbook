@@ -1,4 +1,4 @@
-# fed25-fundamentals-mtv
+# Hinder
 Final website for the **fundamentals**-module at Hyper Island
 
 
