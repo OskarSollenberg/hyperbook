@@ -4,6 +4,12 @@ We have developed a dating application that enables you to set up a profile, bro
 This app features account creation, along with the flexibility to log out and log back in, utilizing local storage to mimic the functionality of a database.
 
 
+We have 2 ui versions:
+
+https://hinderapp.netlify.app/
+https://hinder-hyperisland.netlify.app/
+
+
 
 
 ### Languages and Tools:
